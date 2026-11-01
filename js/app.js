@@ -28,23 +28,6 @@ function validarFormulario(endereco, pagamento) {
   return erros;
 }
 
-root.addEventListener('click', event => {
-  const botaoAdd = event.target.closest('[data-add]');
-  if (botaoAdd) {
-    const cafeId = Number(botaoAdd.dataset.add);
-    const cafe = cafes.find(c => c.id === cafeId);
-    if (cafe) {
-      addItem(cafe);
-    }
-    return;
-  }
-
-  const botaoQtd = event.target.closest('[data-action]');
-  if (botaoQtd) {
-    const delta = botaoQtd.dataset.action === 'inc' ? 1 : -1;
-    changeQty(Number(botaoQtd.dataset.id), delta);
-  }
-});
 
 root.addEventListener('click', event => {
   const botaoAdd = event.target.closest('[data-add]');
