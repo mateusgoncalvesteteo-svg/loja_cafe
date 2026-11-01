@@ -103,7 +103,7 @@ export function paginaFinalizacao() {
 export function paginaConfirmacao(total) {
   return `
     <div class="text-center py-5">
-      <h2 class="text-success">✅ Compra realizada!</h2>
+      <h2 class="text-success"> Compra realizada!</h2>
       <p class="fs-5">Valor total: ${formatarReal(total)}</p>
       <a href="#/" class="btn btn-primary mt-3">Voltar para a loja</a>
     </div>`;
