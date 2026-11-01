@@ -61,7 +61,7 @@ export function paginaCarrinho() {
         </div>
         <div class="d-flex justify-content-between">
           <a href="#/" class="btn btn-outline-secondary">Continuar Comprando</a>
-          <a href="#/finalizar" class="btn btn-success px-4">Avançar para Finalização</a>
+          <a href="#/finalizar" class="btn btn-success px-4">Finalizar Compra</a>
         </div>
       </div>
     </div>`;

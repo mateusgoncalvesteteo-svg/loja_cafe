@@ -46,6 +46,29 @@ root.addEventListener('click', event => {
   }
 });
 
+root.addEventListener('submit', event => {
+  if (event.target.id !== 'form-compra') return;
+  event.preventDefault();
+
+  const form = event.target;
+  const endereco = form.elements.endereco.value.trim();
+  const pagamento = form.elements.pagamento.value;
+  const erros = validarFormulario(endereco, pagamento);
+
+  const areaErros = document.getElementById('erros');
+  if (erros.length > 0) {
+    areaErros.innerHTML = erros
+      .map(msg => `<div class="alert alert-danger py-2">${msg}</div>`)
+      .join('');
+    return;
+  }
+
+  const total = getTotal();
+  clearCart();
+  root.innerHTML = cabecalho(0) +
+    `<main class="container py-4">${paginaConfirmacao(total)}</main>`;
+});
+
 window.addEventListener('hashchange', renderizar);
 window.addEventListener('carrinho:mudou', renderizar);
 
