@@ -1,20 +1,27 @@
-export function renderCafes(cafes, containerElement) {
-  containerElement.innerHTML = "";
-  
-  cafes.forEach(cafe => {
-    const card = document.createElement("div");
-    card.className = "col-md-3 mb-4";
-    card.innerHTML = `
-      <div class="card h-100 shadow-sm">
-        <img src="${cafe.image}" class="card-img-top" alt="${cafe.title}" style="height: 200px; object-fit: cover;">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">${cafe.title}</h5>
-          <p class="card-text text-muted small">${cafe.description}</p>
-          <p class="card-text fw-bold mt-auto">R$ ${cafe.price.toFixed(2)}</p>
-          <button class="btn btn-outline-primary mt-2 btn-add-cart" data-id="${cafe.id}">Adicionar ao Carrinho</button>
-        </div>
-      </div>
-    `;
-    containerElement.appendChild(card);
-  });
+export const root = document.getElementById('root');
+
+export function formatarReal(valor) {
+  return `R$ ${Number(valor).toFixed(2).replace('.', ',')}`;
+}
+
+export function escapar(texto) {
+  const div = document.createElement('div');
+  div.textContent = texto;
+  return div.innerHTML;
+}
+
+export function cabecalho(quantidadeItens) {
+  return `
+    <header class="navbar navbar-dark bg-dark px-4 shadow-sm">
+      <a class="navbar-brand d-flex align-items-center" href="#/">
+        <i class="fa-brands fa-java me-2" style="font-size: 1.5rem; color: #f89820;"></i>
+        <span>Loja de Cafés</span>
+      </a>
+      <a class="btn btn-outline-light position-relative px-3 py-2" href="#/carrinho" aria-label="Ver carrinho">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          ${quantidadeItens}
+        </span>
+      </a>
+    </header>`;
 }
