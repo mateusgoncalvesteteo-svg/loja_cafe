@@ -73,6 +73,13 @@ Depois, acesse o endereço exibido no terminal (por exemplo, `http://127.0.0.1:5
 - **Proteção contra HTML injetado:** os textos vindos da API passam pela função `escapar` antes de entrar na página.
 - **Validação do formulário:** o endereço precisa ter pelo menos 10 caracteres e um método de pagamento precisa ser escolhido. Os erros aparecem na própria tela.
 
+## Telas
+
+![Página inicial](imagens/home.png)
+![Carrinho](imagens/carrinho.png)
+![Finalização](imagens/finalizacao.png)
+![Confirmação](imagens/confirmacao.png)
+
 ## Observações
 
 - O pagamento é apenas simulado. A aplicação registra o método escolhido e exibe a confirmação, sem integração com meios de pagamento reais.
